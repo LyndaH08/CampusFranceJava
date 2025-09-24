@@ -1,0 +1,44 @@
+[
+  {
+    "adresseMail": "Sam@gmail.com",
+    "motDePasse": "01234567NB",
+    "civilite": "mr",
+    "nom": "Franck",
+    "prenom": "Sam",
+    "paysResidence": "France",
+    "paysNationalite": "Francaise",
+    "adresse": {
+      "codePostale": "75006",
+      "ville": "Paris"
+    },
+    "telephone": "0987898767",
+    "statut": "Etudiant",
+    "domaine": "Sport",
+    "niveau": "Licence 1",
+    "fonction": null,
+    "typeOrganisme": null,
+    "nomOrganisme": null
+  },
+
+  {
+    "adresseMail": "Linda@gmail.com",
+    "motDePasse": "01234567NB",
+    "civilite": "mme",
+    "nom": "Hache",
+    "prenom": "Linda",
+    "paysResidence": "Algerie",
+    "paysNationalite": "Algerienne",
+    "adresse": {
+      "codePostale": "60000",
+      "ville": "Bejaia"
+    },
+    "telephone": "0987898767",
+    "statut": "Etudiant",
+    "domaine": "Biologie",
+    "niveau": "Doctorat / PhD",
+    "fonction": null,
+    "typeOrganisme": null,
+    "nomOrganisme": null
+  }
+]
+
