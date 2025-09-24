@@ -32,19 +32,13 @@ jobs:
       - name: Run Selenium tests
         run: mvn test -Dtest=org.example.Test.CreateAccountTest.CreateAccountStudent.java
 
-    # upload les rapports Surefire (JUnit XML)
-      - name: Upload test reports
-        uses: actions/upload-artifact@v4
-        with:
-          name: surefire-reports
-          path: target/surefire-reports/
-
       # afficher un résumé des tests (GitHub Test Reporter)
       - name: Publish JUnit test results
         uses: dorny/test-reporter@v1
         if: always() # pour exécuter même si les tests échouent
         with:
-          name: Selenium Tests
+          name: Test Resume
+          #fechier generé automatiquement par maven
           path: target/surefire-reports/*.xml
           reporter: java-junit
       
