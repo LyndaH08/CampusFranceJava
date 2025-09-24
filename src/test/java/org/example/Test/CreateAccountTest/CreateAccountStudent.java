@@ -41,7 +41,7 @@ public class CreateAccountStudent
         // Permet à Chrome de fonctionner correctement sur des runners avec peu de mémoire
         options.addArguments("--disable-dev-shm-usage");
         // Fix pour la taille d'écran afin que tous les éléments soient visibles
-        options.addArguments("--window-size=1920,1080");
+        //options.addArguments("--window-size=1920,1080");
     }
 
     // Création du driver Chrome avec les options définies ci-dessus
