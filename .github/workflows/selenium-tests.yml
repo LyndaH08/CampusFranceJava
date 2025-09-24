@@ -15,7 +15,7 @@ jobs:
     steps:
     #récupère le code de ton dépôt GitHub.
       - name: Checkout repository
-      - uses: actions/checkout@v3 
+        uses: actions/checkout@v3 
     #Installer Java.
       - name: Setup Java 21     #Nom de l'etape pour etre lisible dans l'artifacte
         uses: actions/setup-java@v3  #Utilise l’action  pour installer Java
