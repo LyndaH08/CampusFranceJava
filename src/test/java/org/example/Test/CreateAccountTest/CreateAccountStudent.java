@@ -25,10 +25,34 @@ public class CreateAccountStudent
 
     @BeforeEach
     void beforeEach() throws IOException {
-        driver = new ChromeDriver(); // Chrome s’ouvre une seule fois
-        users = ReadDataFromJson.fromJsonFileToObject();
-        fillFields = new ChampsCommunForm();
-        driver.get("https://www.campusfrance.org/fr/user/register");
+    // Création des options pour configurer chrome le navigateur Chrome
+    ChromeOptions options = new ChromeOptions();
+        
+    // Vérifie si le test s'exécute sur GitHub Actions
+    // GitHub définit automatiquement la variable d'environnement GITHUB_ACTIONS à "true"
+    String githubActions = System.getenv("GITHUB_ACTIONS");
+    if ("true".equals(githubActions)) {
+        // Exécution en mode headless (pas d'affichage graphique) pour le runner Linux
+        options.addArguments("--headless=new"); 
+
+        // Désactive le sandboxing (nécessaire pour certains environnements CI)
+        options.addArguments("--no-sandbox");
+
+        // Permet à Chrome de fonctionner correctement sur des runners avec peu de mémoire
+        options.addArguments("--disable-dev-shm-usage");
+    }
+
+    // Création du driver Chrome avec les options définies ci-dessus
+    driver = new ChromeDriver(options); 
+
+    // Lecture des etudiants depuis le fichier JSON
+    users = ReadDataFromJson.fromJsonFileToObject();
+
+    // Initialisation du formulaire commun
+    fillFields = new ChampsCommunForm();
+
+    // Lancer la page du formulaire
+    driver.get("https://www.campusfrance.org/fr/user/register");
     }
 
     @Test
