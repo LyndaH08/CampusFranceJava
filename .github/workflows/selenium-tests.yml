@@ -31,7 +31,7 @@ jobs:
 
       #  Installer ChromeDriver
       - name: Install ChromeDriver
-        uses: nanasess/setup-chromedriver@v1.3.1
+        uses: nanasess/setup-chromedriver@v2
 
     #Compilation du projet
       - name: Build project
