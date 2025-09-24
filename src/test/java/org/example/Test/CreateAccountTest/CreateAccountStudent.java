@@ -6,6 +6,7 @@ import org.junit.jupiter.api.*; //Importer les annotation
 //Les methodes d'assertions sont declaré static (sinon il faut les appeler avec le nom de la classe Assertion
 import static org.junit.jupiter.api.Assertions.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.*;
 import java.io.IOException;
 import java.util.List;
