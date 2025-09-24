@@ -32,7 +32,8 @@ public class CreateAccountStudent
     // GitHub définit automatiquement la variable d'environnement GITHUB_ACTIONS à "true"
     String githubActions = System.getenv("GITHUB_ACTIONS");
     if ("true".equals(githubActions)) {
-        // Exécution en mode headless (pas d'affichage graphique) pour le runner Linux
+        // Exécution en mode headless (pas d'affichage graphique) 
+        // Obligatoire sur CI pour éviter les erreurs de session ou d'affichage
         options.addArguments("--headless=new"); 
 
         // Désactive le sandboxing (nécessaire pour certains environnements CI)
