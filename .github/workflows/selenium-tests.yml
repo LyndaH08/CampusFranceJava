@@ -6,7 +6,10 @@ on:
 jobs:
   selenium-tests:
     runs-on: ubuntu-latest #runnersur lequel le job s’exécute --> Obligatoire #Ubuntu est rapide, stable, et permet facilement d’exécuter Selenium en mode headless.
-    
+    permissions:
+      contents: read
+      checks: write
+      
     #Use indique qu'in vas utiliser une action github et pas une commande shell pour recupere le code
     #actions/checkout est l’action officielle GitHub qui récupère le code du dépôt dans le runner.
     #@v3  la version de l’action. important pour la stabilité et la compatibilité.
