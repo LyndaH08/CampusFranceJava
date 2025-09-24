@@ -13,7 +13,7 @@ jobs:
     #actions/checkout est l’action officielle GitHub qui récupère le code du dépôt dans le runner.
     #@v3  la version de l’action. important pour la stabilité et la compatibilité.
     steps:
-    #récupère le code de ton dépôt GitHub.
+    #récupère le code du dépôt GitHub.
       - name: Checkout repository
         uses: actions/checkout@v3 
     #Installer Java.
@@ -23,6 +23,16 @@ jobs:
           distribution: 'temurin' # Quelle distribution Java installer (Temurin est très populaire)
           java-version: '21'
 
+    # Installer Chrome
+      - name: Install Google Chrome
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
+
+      #  Installer ChromeDriver
+      - name: Install ChromeDriver
+        uses: nanasess/setup-chromedriver@v1.3.1
+
     #Compilation du projet
       - name: Build project
         run: mvn clean install -DskipTests
@@ -30,3 +40,11 @@ jobs:
     #Exécution des tests
       - name: Run Selenium tests
         run: mvn test -Dtest=org.example.Test.CreateAccountTest.CreateAccountStudent
+        env:
+          DISPLAY: ":99"  # Permet à Chrome de tourner en headless
+
+
+
+
+
+        
