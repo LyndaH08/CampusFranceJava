@@ -19,11 +19,7 @@ public class ChampsCommunForm {
 
         //Informations personnelles
         // Accepter cookies
-        List<WebElement> elems = driver.findElements(By.id("tarteaucitronPersonalize2"));
-            if (!elems.isEmpty()) {
-            elems.get(0).click(); // clique sur le premier élément si présent
-           }
-       // driver.findElement(By.id("tarteaucitronPersonalize2")).click(); 
+        driver.findElement(By.id("tarteaucitronPersonalize2")).click(); 
 
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true); arguments[0].click();",
                 driver.findElement(By.id("edit-field-civilite-mr")));
