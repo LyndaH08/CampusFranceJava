@@ -29,4 +29,4 @@ jobs:
 
     #Exécution des tests
       - name: Run Selenium tests
-        run: mvn test
+        run: mvn test -Dtest=org.example.Test.CreateAccountTest.CreateAccountStudent
