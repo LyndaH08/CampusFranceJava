@@ -21,25 +21,14 @@ jobs:
           distribution: 'temurin' # Quelle distribution Java installer (Temurin est très populaire)
           java-version: '21'
 
-    # Installer Chrome
-      - name: Install Google Chrome
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y google-chrome-stable
-
-      #  Installer ChromeDriver
-      - name: Install ChromeDriver
-        uses: nanasess/setup-chromedriver@v2
-
     #Compilation du projet
       - name: Build project
         run: mvn clean install -DskipTests
 
     #Exécution des tests
       - name: Run Selenium tests
-        run: mvn test -Dtest=org.example.Test.CreateAccountTest.CreateAccountStudent
-        env:
-          DISPLAY: ":99"  # Permet à Chrome de tourner en headless
+        run: mvn test -Dtest=org.example.Test.CreateAccountTest
+      
 
 
 
