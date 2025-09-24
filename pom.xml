@@ -21,6 +21,12 @@
           <artifactId>selenium-java</artifactId>
           <version>4.17.0</version>
       </dependency>
+        <!-- Selenium Chrome Driver (nécessaire pour ChromeOptions) -->
+    <dependency>
+        <groupId>org.seleniumhq.selenium</groupId>
+        <artifactId>selenium-chrome-driver</artifactId>
+        <version>4.17.0</version>
+    </dependency>
 
       <!-- JUnit 5 -->
       <dependency>
