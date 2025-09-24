@@ -1,0 +1,32 @@
+#quand le workflow doit se déclencher.
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  selenium-tests:
+    runs-on: ubuntu-latest #runnersur lequel le job s’exécute --> Obligatoire #Ubuntu est rapide, stable, et permet facilement d’exécuter Selenium en mode headless.
+    
+    #Use indique qu'in vas utiliser une action github et pas une commande shell pour recupere le code
+    #actions/checkout est l’action officielle GitHub qui récupère le code du dépôt dans le runner.
+    #@v3  la version de l’action. important pour la stabilité et la compatibilité.
+    steps:
+    #récupère le code de ton dépôt GitHub.
+      - name: Checkout repository
+      - uses: actions/checkout@v3 
+    #Installer Java.
+      - name: Setup Java 21     #Nom de l'etape pour etre lisible dans l'artifacte
+        uses: actions/setup-java@v3  #Utilise l’action  pour installer Java
+        with:
+          distribution: 'temurin' # Quelle distribution Java installer (Temurin est très populaire)
+          java-version: '21'
+
+    #Compilation du projet
+      - name: Build project
+        run: mvn clean install -DskipTests
+
+    #Exécution des tests
+      - name: Run Selenium tests
+        run: mvn test
