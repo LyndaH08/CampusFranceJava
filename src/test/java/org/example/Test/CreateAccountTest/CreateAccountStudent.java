@@ -36,12 +36,12 @@ public class CreateAccountStudent
         // Exécution en mode headless (pas d'affichage graphique) 
         // Obligatoire sur CI pour éviter les erreurs de session ou d'affichage
         options.addArguments("--headless=new"); 
-
         // Désactive le sandboxing (nécessaire pour certains environnements CI)
         options.addArguments("--no-sandbox");
-
         // Permet à Chrome de fonctionner correctement sur des runners avec peu de mémoire
         options.addArguments("--disable-dev-shm-usage");
+        // Fix pour la taille d'écran afin que tous les éléments soient visibles
+        options.addArguments("--window-size=1920,1080");
     }
 
     // Création du driver Chrome avec les options définies ci-dessus
